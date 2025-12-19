@@ -67,19 +67,16 @@
 .info {
     flex: 1;
 
-
     h3 {
         margin: 0 0 6px 0;
         font-size: 16px;
         font-weight: 600;
     }
 
-
     p {
         margin: 0 0 10px 0;
         font-size: 13px;
         color: #777;
-
 
         span {
             margin: 0 6px;
@@ -87,12 +84,3 @@
     }
 }
 
-
-.btn-delete, .btn-add {
-    background: #efefef;
-    border: 1px solid #e6e6e6;
-    border-radius: 4px;
-    padding: 4px 10px;
-    font-size: 12px;
-    cursor: pointer;
-}

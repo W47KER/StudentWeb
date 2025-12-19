@@ -47,7 +47,7 @@ export class ViewComponent implements OnInit, OnDestroy {
       },
       error: (err: any) => {
         this.loader = false;
-        alert(err?.message || 'Unable to fetch student data.');
+        alert(err.error?.message || 'Unable to fetch student data.');
         this.errorMessage = err?.message || 'Unable to fetch student data.';
       }
     });
@@ -61,7 +61,7 @@ export class ViewComponent implements OnInit, OnDestroy {
           this.loadStudents();
         },
         error: (err: any) => {
-          alert(err?.message || 'Unable to delete student.');
+          alert(err.error?.message || 'Unable to delete student.');
         }
       }); 
     }
