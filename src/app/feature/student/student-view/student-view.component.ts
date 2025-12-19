@@ -51,6 +51,7 @@ export class StudentViewComponent implements OnInit, OnDestroy {
         error: (err: any) => {
           this.loader = false;
           alert(err.error?.message || 'Unable to load student data.');
+          this.router.navigate(['/student']);
         }
       })
   }

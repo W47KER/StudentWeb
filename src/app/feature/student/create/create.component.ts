@@ -74,7 +74,8 @@ export class CreateComponent implements OnInit, OnDestroy {
           }
         },
         error: (err: any) => {
-          alert(err?.message || 'Unable to load student data.');
+          alert(err.error?.message || 'Unable to load student data.');
+          this.router.navigate(['/student']);
         }
       })
   }
