@@ -53,10 +53,6 @@
     margin-bottom: 16px;
     align-items: flex-start;
 
-
-    &:last-child {
-        margin-bottom: 0;
-    }
 }
 
 
@@ -99,9 +95,4 @@
     padding: 4px 10px;
     font-size: 12px;
     cursor: pointer;
-
-
-    &:hover {
-        background: #e0e0e0;
-    }
 }

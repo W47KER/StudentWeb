@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <div class="page-wrapper">
+        <div *ngIf="loader; else content">
+            <div class="loader">Loading student details...</div>
+        </div>
+
+        <ng-template #content>
+            <div class="student-card" *ngIf="student; else noStudent">
+                <div class="avatar-large">
+                    <img src='assets/profile.jpg' alt="Profile Photo" class="avatar-large" />
+                </div>
+                <div class="info-large info">
+                    <h2>{{student.firstName}} {{student.lastName}}</h2>
+                    <p><strong>Roll No:</strong> {{student.rollNumber}}</p>
+                    <p><strong>Email:</strong> {{student.email}}</p>
+                    <p><strong>Gender:</strong> {{student.gender}}</p>
+                    <p><strong>Created At:</strong> {{student.createdAt | date:'dd-MM-yyyy'}}</p>
+                    <div class="button-group-large">
+                    <button class="btn-back" (click)="goBack()">Back</button> 
+                    </div>
+                </div>
+            </div>
+
+            <ng-template #noStudent>
+                <div class="no-student">
+                    Student not found.
+                </div>
+            </ng-template> 
+
+        </ng-template>
+    </div>
+</div>

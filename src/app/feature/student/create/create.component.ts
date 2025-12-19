@@ -20,7 +20,6 @@ export class CreateComponent implements OnInit, OnDestroy {
   
   public form!: FormGroup;
   public previewUrl: string | null = null;
-  private subs: Subscription = new Subscription();
   private editingId?: number;
   public saveLoader: boolean = false;
 
@@ -35,7 +34,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-      this.subs = this.route.paramMap.subscribe(params => {
+      this.route.paramMap.subscribe(params => {
         const id = params.get('id');
         if (id) {
           this.editingId = Number(id);
@@ -45,7 +44,6 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subs.unsubscribe();
     this.serviceXhr.unsubscribe();
   }
 
@@ -61,7 +59,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   }
 
   private loadStudent(id: number): void {
-    this.subs =  this.serviceXhr =  this.service.getStudentById(id).subscribe({
+    this.serviceXhr =  this.service.getStudentById(id).subscribe({
         next: (res: any) => {
           this.form.patchValue({
             firstName: res.firstName ?? '',
