@@ -1,1 +1,61 @@
-<p>create works!</p>
+<div class="wrapper">
+    <div class="form-wrapper">
+        <form [formGroup]="form" (ngSubmit)="submit()" class="student-form" novalidate>
+            <div class="form-group">
+                <label>First Name <span>*</span></label>
+                <input type="text" formControlName="firstName" placeholder="First Name" />
+                <small *ngIf="f['firstName'].touched && f['firstName'].invalid" class="error">
+                    First name is required.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name <span>*</span></label>
+                <input type="text" formControlName="lastName" placeholder="Last Name" />
+                <small *ngIf="f['lastName'].touched && f['lastName'].invalid" class="error">
+                    Last name is required.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Email <span>*</span></label>
+                <input type="email" formControlName="email" placeholder="Email" />
+                <small *ngIf="f['email'].touched && f['email'].invalid" class="error">
+                    Provide a valid email.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Roll Number <span>*</span></label>
+                <input type="number" formControlName="rollNumber" placeholder="Roll number" />
+                <small *ngIf="f['rollNumber'].touched && f['rollNumber'].invalid" class="error">
+                    Roll number is required and must be a non-negative number.
+                </small>
+            </div>
+
+            <div class="form-group radio-group">
+                <label class="radio">
+                    <input type="radio" formControlName="gender" value="Female" /> Female
+                </label>
+                <label class="radio">
+                    <input type="radio" formControlName="gender" value="Male" /> Male
+                </label>
+            </div>
+
+            <!-- <div class="form-group">
+                <label>Profile Photo</label>
+                <input type="file" (change)="onFileChange($event)" accept="image/*" />
+            </div> 
+
+            <div *ngIf="previewUrl" class="form-group">
+                <label>Preview</label>
+                <img [src]="previewUrl" alt="profile preview" style="max-width:200px; display:block; margin-top:8px;" />
+            </div> -->
+
+            <div class="button-group">
+                <button type="submit" class="btn submit" [disabled]="saveLoader">Submit</button>
+                <button type="button" class="btn reset" (click)="reset()">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
