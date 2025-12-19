@@ -12,7 +12,7 @@
                         <span class="total">Total: {{totalStudents}}</span>
                     </div>
                     <div class="header-right">
-                        <button class="btn-add" (click)="createStudent()">Add Student</button>
+                        <button class="btn" (click)="createStudent()">Add Student</button>
                     </div>
                 </section>
 
@@ -31,11 +31,11 @@
                             <h3>{{student.firstName}} {{student.lastName}}</h3>
                             <p>Roll No: {{student.rollNumber}} <span>|</span> Created: {{student.createdAt |
                                 date:'dd-MM-yyyy'}}</p>
-                            <button class="btn-delete" style="margin-right: 8px;"
+                            <button class="btn" style="margin-right: 8px;"
                                 (click)="viewStudent(student.id)">View</button>
-                            <button class="btn-delete" style="margin-right: 8px;"
+                            <button class="btn" style="margin-right: 8px;"
                                 (click)="editStudent(student.id)">Edit</button>
-                            <button class="btn-delete" (click)="deleteStudent(student.id)">Delete</button>
+                            <button class="btn" (click)="deleteStudent(student.id)">Delete</button>
                         </div>
                     </div>
                 </ng-template>
