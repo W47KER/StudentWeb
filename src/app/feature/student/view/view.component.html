@@ -1,1 +1,47 @@
-<p>view works!</p>
+<div class="wrapper">
+    <div class="page-wrapper">
+        <div *ngIf="loader; else content">
+            <div class="loader">Loading students...</div>
+        </div>
+
+        <ng-template #content>
+            <div class="students-card">
+                <section class="header-section">
+                    <div class="header">
+                        <h2>Students</h2>
+                        <span class="total">Total: {{totalStudents}}</span>
+                    </div>
+                    <div class="header-right">
+                        <button class="btn-add" (click)="createStudent()">Add Student</button>
+                    </div>
+                </section>
+
+                <div *ngIf="!students || students.length === 0; else studentList">
+                    <div class="no-students">
+                        No students found.
+                    </div>
+                </div>
+
+                <ng-template #studentList>
+                    <div class="student-item" *ngFor="let student of students; let i = index;">
+                        <div class="avatar">
+                            <img src='assets/profile.jpg' alt="Profile Photo" class="avatar" />
+                        </div>
+                        <div class="info">
+                            <h3>{{student.firstName}} {{student.lastName}}</h3>
+                            <p>Roll No: {{student.rollNumber}} <span>|</span> Created: {{student.createdAt |
+                                date:'dd-MM-yyyy'}}</p>
+                            <button class="btn-delete" style="margin-right: 8px;"
+                                (click)="viewStudent(student.id)">View</button>
+                            <button class="btn-delete" style="margin-right: 8px;"
+                                (click)="editStudent(student.id)">Edit</button>
+                            <button class="btn-delete" (click)="deleteStudent(student.id)">Delete</button>
+                        </div>
+                    </div>
+                </ng-template>
+
+            </div>
+        </ng-template>
+
+    </div>
+</div>
