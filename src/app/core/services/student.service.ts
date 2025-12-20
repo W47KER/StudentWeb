@@ -11,7 +11,7 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    return this.http.get(`${this.baseUrl}students`);
+    return this.http.get(`${this.baseUrl}students?${Date.now()}`);
   }
   getStudentById(id: number) {
     return this.http.get(`${this.baseUrl}student/${id}`);
